@@ -3,16 +3,19 @@ import skimage.data
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import selectivesearch
-
+from scipy import misc
+from PIL import Image
+import numpy as np
 
 def main():
 
     # loading astronaut image
-    img = skimage.data.astronaut()
+    # img = skimage.data.coffee()
+    img = np.asarray(Image.open('tokyo.jpg'))
 
     # perform selective search
     img_lbl, regions = selectivesearch.selective_search(
-        img, scale=500, sigma=0.9, min_size=10)
+        img, scale=500, sigma=0.9, min_size=80)
 
     candidates = set()
     for r in regions:
