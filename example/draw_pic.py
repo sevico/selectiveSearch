@@ -6,13 +6,13 @@ from scipy import misc
 from PIL import Image
 import numpy as np
 
-img = np.asarray(Image.open('tokyo.jpg'))
+img = np.asarray(Image.open('berlin.jpg'))
 
 fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(6, 6))
 ax.imshow(img)
 
 
-with open('list_tokyo.txt') as f:
+with open('berlin_list.txt') as f:
     for line in f.readlines():
         nums = [int(item) for item in line.split()]
         rect = mpatches.Rectangle((nums[0], nums[1]), nums[2], nums[3], fill=False, edgecolor='red', linewidth=1)
